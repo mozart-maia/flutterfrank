@@ -3,18 +3,20 @@ import 'package:conversor/moedas/tela-moedas.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       // Tela de splash como primeira tela
-      home: SplashScreen(),
+      home: const SplashScreen(),
       // rotas
       routes: {
-        '/tela-escolha': (context) => TelaEscolha(),
+        '/tela-escolha': (context) => const TelaEscolha(),
       },
     );
   }

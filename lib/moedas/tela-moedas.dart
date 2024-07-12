@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Pacote para utilizar o TextInputFormatter
 
 class TelaEscolha extends StatefulWidget {
+  const TelaEscolha({super.key});
+
   @override
   _TelaEscolhaState createState() => _TelaEscolhaState();
 }
@@ -21,14 +23,14 @@ class _TelaEscolhaState extends State<TelaEscolha> {
     return Scaffold(
       backgroundColor: Colors.white60,
       appBar: AppBar(
-          title: Text("Conversor de Moedas"),
-          backgroundColor: Color(0xFF87CEFA),
+          title: const Text("Conversor de Moedas"),
+          backgroundColor: const Color(0xFF87CEFA),
       ),
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Padding(
-          padding: EdgeInsets.only(top: 50, left: 30, right: 30, bottom: 20),
+          padding: const EdgeInsets.only(top: 50, left: 30, right: 30, bottom: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -37,18 +39,18 @@ class _TelaEscolhaState extends State<TelaEscolha> {
                 keyboardType: TextInputType.number,
                 inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}'))],
                 // Permite apenas números e até duas casas decimais
-                decoration: InputDecoration(labelText: "Valor"),
+                decoration: const InputDecoration(labelText: "Valor"),
               ),
-              SizedBox(height: 20), // Espaçamento
-              Align(
+              const SizedBox(height: 20), // Espaçamento
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Text("De", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               ),
               DropdownButtonFormField(
-                items: [
+                items: const [
                   DropdownMenuItem(child: Text('USD'), ),
-                  DropdownMenuItem(child: Text('EUR'), value: 'EUR'),
-                  DropdownMenuItem(child: Text('BRL'), value: "BRL"),
+                  DropdownMenuItem(value: 'EUR', child: Text('EUR')),
+                  DropdownMenuItem(value: "BRL", child: Text('BRL')),
                 ],
                 onChanged: (newValue) {
                   setState(() {
@@ -56,7 +58,7 @@ class _TelaEscolhaState extends State<TelaEscolha> {
                   });
                 },
               ),
-              SizedBox(height: 20), // Espaçamento
+              const SizedBox(height: 20), // Espaçamento
               Row(
                 children: [
                   Expanded(
@@ -65,23 +67,23 @@ class _TelaEscolhaState extends State<TelaEscolha> {
                         // ação para o botão de troca de moeda
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: Color(0xFF87CEFA)
+                          backgroundColor: const Color(0xFF87CEFA)
                       ),
-                      child: Text("Trocar Moedas"),
+                      child: const Text("Trocar Moedas"),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 20), // Espaçamento
-              Align(
+              const SizedBox(height: 20), // Espaçamento
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Text("Para", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               ),
               DropdownButtonFormField(
-                items: [
+                items: const [
                   DropdownMenuItem(child: Text('EUR'), ),
-                  DropdownMenuItem(child: Text('USD'), value: 'USD'),
-                  DropdownMenuItem(child: Text('BRL'), value: 'BRL'),
+                  DropdownMenuItem(value: 'USD', child: Text('USD')),
+                  DropdownMenuItem(value: 'BRL', child: Text('BRL')),
                 ],
                 onChanged: (newValue) {
                   setState(() {
@@ -89,11 +91,11 @@ class _TelaEscolhaState extends State<TelaEscolha> {
                   });
                 },
               ),
-              SizedBox(height: 20), // Espaçamento
+              const SizedBox(height: 20), // Espaçamento
               Row(
                 children: [
                   Expanded(
-                    child: Container(
+                    child: SizedBox(
                       height: 50,
                       child: ElevatedButton(
                         // Para o botão de conversão
@@ -134,7 +136,7 @@ class _TelaEscolhaState extends State<TelaEscolha> {
                           }
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.blueAccent, // Altere para a cor desejada
+                          backgroundColor: Colors.blueAccent, // Altere para a cor desejada
                         ),
                         child: const Text(
                             "Converter",
@@ -148,10 +150,10 @@ class _TelaEscolhaState extends State<TelaEscolha> {
                   ),
                 ],
               ),
-              SizedBox(height: 20), // Espaçamento
+              const SizedBox(height: 20), // Espaçamento
               // Exibir a mensagem de erro se houver
               if (hasError)
-                Text(
+                const Text(
                   "Por favor, forneça um valor numérico antes de converter.",
                   style: TextStyle(color: Colors.red),
                 ),
@@ -165,13 +167,13 @@ class _TelaEscolhaState extends State<TelaEscolha> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: Icon(Icons.monetization_on),
+              icon: const Icon(Icons.monetization_on),
               onPressed: () {
                 Navigator.pushNamed(context, '/tela-escolha');
               },
             ),
             IconButton(
-              icon: Icon(Icons.settings),
+              icon: const Icon(Icons.settings),
               onPressed: () {
                 // ação para o botão de configurações
               },

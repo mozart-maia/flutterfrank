@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 class Resultado extends StatelessWidget {
   final double valorConvertido;
 
-  Resultado({required this.valorConvertido});
+  const Resultado({super.key, required this.valorConvertido});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white60,
       appBar: AppBar(
-        title: Text("Resultado"),
-        backgroundColor: Color(0xFF87CEFA),
+        title: const Text("Resultado"),
+        backgroundColor: const Color(0xFF87CEFA),
       ),
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
@@ -20,7 +20,7 @@ class Resultado extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Valor Convertido: $valorConvertido"),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               children: [
                 Expanded(
@@ -29,9 +29,9 @@ class Resultado extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
-                        primary: Color(0xFF87CEFA)
+                        backgroundColor: const Color(0xFF87CEFA)
                     ),
-                    child: Text("Voltar"),
+                    child: const Text("Voltar"),
                   ),
                 ),
               ],
@@ -44,13 +44,13 @@ class Resultado extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: Icon(Icons.monetization_on),
+              icon: const Icon(Icons.monetization_on),
               onPressed: () {
                 Navigator.pushNamed(context, '/tela-escolha'); // Navegar para a tela de escolha de moedas
               },
             ),
             IconButton(
-              icon: Icon(Icons.settings),
+              icon: const Icon(Icons.settings),
               onPressed: () {
                 // ação para o botão de configurações
               },
